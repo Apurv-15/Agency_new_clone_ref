@@ -3,6 +3,10 @@
 import dynamic from 'next/dynamic';
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { Inter } from 'next/font/google';
+import heroImg from '@/components/video/images/hero-illustration.7100a376.jpg';
+
+const inter = Inter({ subsets: ['latin'] });
 
 const LaserFlow = dynamic(() => import("@/components/ui/LaserFlow"), {
     ssr: false,
@@ -13,7 +17,7 @@ const LaserFlow = dynamic(() => import("@/components/ui/LaserFlow"), {
     )
 });
 
-export default function LaserPage() {
+export function LaserHeroV2() {
     const [mounted, setMounted] = useState(false);
     const revealImgRef = useRef<HTMLDivElement>(null);
 
@@ -21,7 +25,7 @@ export default function LaserPage() {
         setMounted(true);
     }, []);
 
-    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
         const rect = e.currentTarget.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
@@ -41,8 +45,8 @@ export default function LaserPage() {
     };
 
     return (
-        <div
-            className="relative h-screen w-full overflow-hidden"
+        <section
+            className={`relative h-screen w-full overflow-hidden ${inter.className}`}
             style={{ backgroundColor: '#060010' }}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
@@ -60,7 +64,32 @@ export default function LaserPage() {
                 </div>
             )}
 
-            {/* Content Box at Bottom */}
+            {/* Heading Content - Kept from V2 */}
+            <div className="absolute top-0 left-0 right-0 z-20 px-6 md:px-12 lg:px-20 pt-32">
+                <div className="max-w-7xl w-full mx-auto">
+                    <div className="flex flex-col items-start text-left max-w-2xl">
+                        <h1 className="text-[clamp(3rem,6vw,6.5rem)] font-bold leading-[0.9] tracking-tight text-white mb-6">
+                            Everything App<br />
+                            for your teams
+                        </h1>
+                        <p className="text-lg md:text-xl text-gray-400 max-w-lg mb-8 font-light leading-relaxed">
+                            Huly, an open-source platform, serves as an all-in-one replacement of Linear, Jira, Slack, and Notion.
+                        </p>
+
+                        <button
+                            type="button"
+                            className="group relative overflow-hidden bg-white hover:bg-white/90 px-8 py-3.5 text-sm font-bold text-black rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_35px_rgba(255,255,255,0.5)] flex items-center gap-2"
+                        >
+                            SEE IN ACTION
+                            <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            {/* Content Box - From /laser page styling */}
             <div
                 className="absolute left-1/2 -translate-x-1/2 z-10"
                 style={{
@@ -78,18 +107,18 @@ export default function LaserPage() {
                     }}
                 >
                     <Image
-                        src="/video"
-                        alt="Dashboard Preview"
+                        src={heroImg}
+                        alt="Hero Illustration"
                         fill
-                        className="object-cover opacity-90 hover:opacity-100 transition-opacity duration-500"
+                        className="object-cover object-top opacity-90 hover:opacity-100 transition-opacity duration-500"
                         priority
                     />
-                    {/* Optional overlay for better text contrast if needed later */}
+                    {/* Inner Gradient Overlay for Depth */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#060010]/80 via-transparent to-transparent pointer-events-none" />
                 </div>
             </div>
 
-            {/* Interactive Reveal Image Overlay */}
+            {/* Interactive Reveal Image Overlay - From /laser page styling */}
             <div
                 ref={revealImgRef}
                 className="absolute w-full pointer-events-none z-5"
@@ -106,9 +135,8 @@ export default function LaserPage() {
                     maskRepeat: 'no-repeat'
                 }}
             >
-                {/* You can add an image here for the reveal effect */}
-                {/* <Image src="/path/to/image.jpg" alt="Reveal" fill className="object-cover" /> */}
+                {/* Reveal Effect Placeholder */}
             </div>
-        </div>
+        </section>
     );
 }
