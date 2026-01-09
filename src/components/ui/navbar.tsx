@@ -9,9 +9,9 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-gradient-to-br from-violet-600 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg shadow-violet-500/50">
-              <span className="text-white font-bold text-lg">L</span>
+              <span className="text-white font-bold text-lg">S</span>
             </div>
-            <span className="font-bold text-xl text-white">LUCID</span>
+            <span className="font-bold text-xl text-white uppercase tracking-wider">Softman</span>
           </Link>
 
           {/* Navigation Links */}

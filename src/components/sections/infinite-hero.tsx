@@ -295,14 +295,13 @@ export default function InfiniteHero() {
                         ref={h1Ref}
                         className="mx-auto max-w-2xl lg:max-w-4xl text-[clamp(2.25rem,6vw,4rem)] font-extralight leading-[0.95] tracking-tight"
                     >
-                        Make Sense of Everything You Know.
+                        Engineering the Digital Future.
                     </h1>
                     <p
                         ref={pRef}
                         className="mx-auto mt-4 max-w-2xl md:text-balance text-sm/6 md:text-base/7 font-light tracking-tight text-white/70"
                     >
-                        Lucid connects your notes, documents, links, and ideas into a living knowledge map.
-                        It reveals meaning, patterns, and how your thinking has evolved over time.
+                        Softman delivers high-impact digital solutions that transform how modern businesses operate and grow through cutting-edge engineering.
                     </p>
 
                     <div
@@ -316,7 +315,7 @@ export default function InfiniteHero() {
                             <span className="absolute inset-0 overflow-hidden">
                                 <span className="absolute inset-0 translate-x-[-100%] bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover:animate-[shine_1s_ease-in-out] transition-transform duration-1000" />
                             </span>
-                            <span className="relative z-10">Start Searching →</span>
+                            <span className="relative z-10">Start Your Project →</span>
                         </button>
 
                         <button

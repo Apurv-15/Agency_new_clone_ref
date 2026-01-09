@@ -19,7 +19,7 @@ export function WhyChooseUs() {
                         Why Choose Us
                     </h2>
                     <p className="text-gray-500 text-lg">
-                        Partner with an AI agency delivering smart solutions.
+                        Partner with an engineering firm delivering excellence.
                     </p>
                 </div>
 
@@ -128,7 +128,7 @@ export function WhyChooseUs() {
 
                 {/* Bottom Tags */}
                 <div className="mt-24 flex flex-wrap justify-center gap-4">
-                    {["Cost Effective", "Real-Time Insights", "Automation", "Data-Driven Decisions", "Faster Innovation", "Virtual Assistants"].map((tag, i) => (
+                    {["Cost Effective", "High-Performance", "Scalable Apps", "Data-Driven Decisions", "Faster Innovation", "Custom Software"].map((tag, i) => (
                         <div key={i} className="px-6 py-3 rounded-full bg-gray-50 border border-gray-100 text-sm font-medium text-gray-600 flex items-center gap-2 hover:bg-white hover:shadow-md transition-all cursor-default">
                             {i === 1 && <div className="w-4 h-4 rounded-full border border-black flex items-center justify-center text-[8px]">+</div>}
                             {tag}

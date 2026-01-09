@@ -18,7 +18,7 @@ export function CTA() {
                 </WordReveal>
                 <WordReveal baseOpacity={0.2} blurStrength={6} baseRotation={3}>
                     <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-                        Join hundreds of companies already scaling with AI-powered automation and insights.
+                        Join hundreds of companies already scaling with our expert software engineering and digital transformation services.
                     </p>
                 </WordReveal>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

@@ -9,17 +9,19 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "LUCID - AI Automation & Digital Solutions",
-  description: "Transform your business with premium AI automation services, custom AI development, and scalable digital solutions. Boost efficiency and drive growth with intelligent automation.",
-  keywords: ["AI automation", "digital solutions", "AI consulting", "workflow automation", "custom AI development", "chatbots", "virtual assistants"],
-  authors: [{ name: "LUCID" }],
+  title: "Softman - Engineering Excellence & Digital Solutions",
+  description: "Empower your business with high-performance software engineering, scalable digital solutions, and strategic technology consulting.",
+  keywords: ["Software Development", "Digital Solutions", "Software Engineering", "Tech Consulting", "Scalable Apps", "Enterprise Software"],
+  authors: [{ name: "Softman" }],
   openGraph: {
-    title: "LUCID - AI Automation & Digital Solutions",
-    description: "Transform your business with premium AI automation services and scalable digital solutions.",
+    title: "Softman - Engineering Excellence & Digital Solutions",
+    description: "Empower your business with high-performance software engineering and scalable digital solutions.",
     type: "website",
   },
 };
 
+
+import { SmoothScroll } from "@/components/ui/smooth-scroll";
 
 export default function RootLayout({
   children,
@@ -29,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} font-sans antialiased`}>
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );
