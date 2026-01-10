@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Softman Engineering - Premium Agency Landing Page
 
-## Getting Started
+A high-performance, visually stunning agency landing page built with **Next.js 15**, **Tailwind CSS 4**, and cutting-edge animation libraries. This project showcases premium engineering with a focus on rich aesthetics, fluid transitions, and interactive 3D elements.
 
-First, run the development server:
+## 🚀 Tech Stack
+
+- **Framework:** [Next.js 15](https://nextjs.org/) (App Router, TypeScript)
+- **Styling:** [Tailwind CSS 4](https://tailwindcss.com/)
+- **Animations:**
+  - [Framer Motion](https://www.framer.com/motion/) (UI transitions & micro-interactions)
+  - [GSAP](https://greensock.com/gsap/) (Scroll-triggered word reveals & complex sequences)
+  - [Lenis](https://lenis.darkroom.engineering/) (Premium smooth scrolling)
+- **3D Effects:** [Three.js](https://threejs.org/) via [@react-three/fiber](https://docs.pmnd.rs/react-three-fiber/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+
+## ✨ Key Features & Animations
+
+### 1. Laser Hero V2
+A state-of-the-art hero section featuring a dynamic Three.js laser flow background. It includes a custom typewriter effect and a "Mouse Reveal" image overlay that reacts to the user's cursor.
+
+### 2. Sparking Beam Timeline
+An interactive vertical timeline where a "sparking" electrical beam follows the user's scroll. The beam features a glowing head, electric pulses, and trail sparks to provide a high-energy navigational experience.
+
+### 3. Encrypted Text Reveal
+A sophisticated animation component that starts with gibberish characters and "decrypts" into clear text as it enters the viewport. Optimized for performance and SSR to prevent hydration mismatches.
+
+### 4. Word-by-Word Scroll Reveal
+Powered by GSAP, this effect reveals text content with a focus-like blur and opacity transition, creating a professional and engaging reading experience.
+
+### 5. Premium UI Components
+- **3D Cards:** Interactive tilt effects for service and project highlights.
+- **Glowing Borders:** Subtle, animated gradients that respond to hover states.
+- **Shine Buttons:** CTA buttons with a dynamic light sweep effect.
+
+## 🛠️ Getting Started
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+## 📐 Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+- `src/app`: Next.js App Router and global styles.
+- `src/components/sections`: High-level page sections (Hero, Timeline, Services, etc.).
+- `src/components/ui`: Reusable, atomic UI components with integrated animations.
+- `src/lib`: Utility functions and shared logic.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📄 License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is private and intended for demonstration purposes.
