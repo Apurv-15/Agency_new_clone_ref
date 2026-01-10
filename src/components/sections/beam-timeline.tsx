@@ -81,11 +81,41 @@ export function BeamTimeline() {
                     {/* Left Column: Text & Beam */}
                     <div className="relative">
                         {/* The Vertical Beam Line Container */}
-                        <div className="absolute left-8 top-0 bottom-0 w-[2px] bg-white/10 hidden lg:block">
+                        <div className="absolute left-8 top-0 bottom-0 w-[1px] bg-white/5 hidden lg:block -translate-x-1/2">
+                            {/* The Progress Beam */}
                             <motion.div
-                                className="absolute top-0 left-0 w-full bg-gradient-to-b from-violet-500 via-indigo-500 to-blue-500 origin-top"
-                                style={{ scaleY, height: "100%" }}
-                            />
+                                className="absolute top-0 left-0 w-full bg-gradient-to-b from-violet-600 via-blue-400 to-white origin-top"
+                                style={{
+                                    height: useTransform(scaleY, [0, 1], ["0%", "100%"]),
+                                    boxShadow: "0 0 15px rgba(139, 92, 246, 0.5)"
+                                }}
+                            >
+                                {/* Spark Head */}
+                                <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
+                                    {/* Primary Core */}
+                                    <div className="w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_10px_#fff,0_0_20px_#8B5CF6,0_0_30px_#8B5CF6]" />
+
+                                    {/* Animated Pulse */}
+                                    <motion.div
+                                        animate={{
+                                            scale: [1, 2, 1],
+                                            opacity: [0.5, 0, 0.5]
+                                        }}
+                                        transition={{
+                                            duration: 1.5,
+                                            repeat: Infinity,
+                                            ease: "easeInOut"
+                                        }}
+                                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-violet-500 rounded-full blur-sm"
+                                    />
+
+                                    {/* Trail Spark */}
+                                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[2px] h-20 bg-gradient-to-t from-white via-violet-500 to-transparent blur-[1px]" />
+
+                                    {/* Lateral Glows */}
+                                    <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-8 h-[1px] bg-gradient-to-r from-transparent via-violet-500/50 to-transparent" />
+                                </div>
+                            </motion.div>
                         </div>
 
                         <div className="space-y-32 relative z-10 pb-32">
@@ -181,9 +211,9 @@ function TimelineBlock({ item, index, setActiveId, isActive }: { item: TimelineI
             viewport={{ once: true, margin: "-100px" }}
             className={cn("pl-0 lg:pl-24 relative group", isActive ? "opacity-100" : "opacity-40 blur-[1px] transition-all duration-500")}
         >
-            {/* Mobile Icon / Dot */}
+            {/* Desktop Indicator Dot */}
             <div className={cn(
-                "absolute left-6 lg:left-6 top-0 -translate-x-1/2 w-4 h-4 rounded-full border-2 transition-colors duration-500 z-20 hidden lg:block",
+                "absolute left-8 top-0 -translate-x-1/2 w-4 h-4 rounded-full border-2 transition-colors duration-500 z-20 hidden lg:block",
                 isActive ? "bg-black border-violet-500 scale-125" : "bg-black border-gray-700"
             )}>
                 {isActive && <div className="absolute inset-0 bg-violet-500 rounded-full animate-ping opacity-75" />}
