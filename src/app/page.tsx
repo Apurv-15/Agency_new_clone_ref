@@ -71,6 +71,7 @@ export default function Home() {
 
         {/* Other sections stagger in after text starts or along with it */}
         <motion.div
+          id="main-content"
           initial={{ opacity: 0 }}
           animate={{ opacity: showText ? 1 : 0 }}
           transition={{ delay: 2, duration: 1 }}

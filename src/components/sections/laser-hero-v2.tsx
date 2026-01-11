@@ -5,7 +5,14 @@ import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import { motion } from 'framer-motion';
+import gsap from 'gsap';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import heroImg from '@/components/video/images/hero-illustration.7100a376.jpg';
+
+// Register ScrollToPlugin
+if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollToPlugin);
+}
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -141,6 +148,13 @@ export function LaserHeroV2({
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: showText ? 1 : 0, scale: showText ? 1 : 0.9 }}
                             transition={{ delay: 3, duration: 0.5 }}
+                            onClick={() => {
+                                gsap.to(window, {
+                                    duration: 1.5,
+                                    scrollTo: "#main-content",
+                                    ease: "power4.inOut"
+                                });
+                            }}
                             type="button"
                             className="group relative overflow-hidden bg-white hover:bg-white/90 px-8 py-3.5 text-sm font-bold text-black rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_35px_rgba(255,255,255,0.5)] flex items-center gap-2"
                         >
