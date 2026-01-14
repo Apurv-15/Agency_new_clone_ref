@@ -1,9 +1,5 @@
-"use client";
-
-import dynamic from 'next/dynamic';
-import { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
-import { Inter } from 'next/font/google';
+import React, { useState, useEffect, useRef, Suspense } from 'react';
+import Image from '@/components/ui/image-shim';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
@@ -14,16 +10,7 @@ if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollToPlugin);
 }
 
-const inter = Inter({ subsets: ['latin'] });
-
-const LaserFlow = dynamic(() => import("@/components/ui/LaserFlow"), {
-    ssr: false,
-    loading: () => (
-        <div className="w-full h-full flex items-center justify-center bg-[#060010]">
-            <div className="w-16 h-16 border-4 border-violet-500/30 border-t-violet-500 rounded-full animate-spin" />
-        </div>
-    )
-});
+const LaserFlow = React.lazy(() => import("@/components/ui/LaserFlow"));
 
 // Simple Typewriter component
 const Typewriter = ({ text, delay = 0, duration = 0.05, onComplete }: { text: string; delay?: number; duration?: number; onComplete?: () => void }) => {
@@ -93,7 +80,7 @@ export function LaserHeroV2({
 
     return (
         <section
-            className={`relative h-[120vh] w-full overflow-hidden ${inter.className}`}
+            className="relative h-[120vh] w-full overflow-hidden"
             style={{
                 backgroundColor: '#060010',
                 willChange: 'transform',
@@ -111,13 +98,19 @@ export function LaserHeroV2({
                 className="absolute inset-0"
             >
                 {mounted && (
-                    <LaserFlow
-                        horizontalBeamOffset={0.1}
-                        verticalBeamOffset={0.0}
-                        color="#8B5CF6"
-                        fogIntensity={0.5}
-                        wispDensity={1.2}
-                    />
+                    <Suspense fallback={
+                        <div className="w-full h-full flex items-center justify-center bg-[#060010]">
+                            <div className="w-16 h-16 border-4 border-violet-500/30 border-t-violet-500 rounded-full animate-spin" />
+                        </div>
+                    }>
+                        <LaserFlow
+                            horizontalBeamOffset={0.1}
+                            verticalBeamOffset={0.0}
+                            color="#8B5CF6"
+                            fogIntensity={0.5}
+                            wispDensity={1.2}
+                        />
+                    </Suspense>
                 )}
             </motion.div>
 

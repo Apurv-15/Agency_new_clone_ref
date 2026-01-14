@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 export function Navbar() {
@@ -7,7 +7,7 @@ export function Navbar() {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-gradient-to-br from-violet-600 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg shadow-violet-500/50">
               <span className="text-white font-bold text-lg">S</span>
             </div>
@@ -16,18 +16,18 @@ export function Navbar() {
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="#product" className="text-sm font-medium text-gray-400 hover:text-violet-400 transition-colors">
+            <a href="#product" className="text-sm font-medium text-gray-400 hover:text-violet-400 transition-colors">
               Product
-            </Link>
-            <Link href="#how-it-works" className="text-sm font-medium text-gray-400 hover:text-violet-400 transition-colors">
+            </a>
+            <a href="#how-it-works" className="text-sm font-medium text-gray-400 hover:text-violet-400 transition-colors">
               How It Works
-            </Link>
-            <Link href="#stories" className="text-sm font-medium text-gray-400 hover:text-violet-400 transition-colors">
+            </a>
+            <a href="#stories" className="text-sm font-medium text-gray-400 hover:text-violet-400 transition-colors">
               Stories
-            </Link>
-            <Link href="#research" className="text-sm font-medium text-gray-400 hover:text-violet-400 transition-colors">
+            </a>
+            <a href="#research" className="text-sm font-medium text-gray-400 hover:text-violet-400 transition-colors">
               Research
-            </Link>
+            </a>
           </div>
 
           {/* CTA Buttons */}

@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
-import Image from "next/image";
+import Image from "@/components/ui/image-shim";
 import { cn } from "@/lib/utils";
 import { Code2, Cpu, Globe, Rocket, Zap } from "lucide-react";
 

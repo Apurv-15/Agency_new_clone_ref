@@ -2,7 +2,7 @@
 
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { GlowCard } from "@/components/ui/animated-components";
-import Image from "next/image";
+import Image from "@/components/ui/image-shim";
 import { WordReveal } from "@/components/ui/word-reveal";
 
 export function Services() {

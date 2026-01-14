@@ -1,17 +1,7 @@
-"use client";
+import React, { useState, useEffect, useRef, Suspense } from 'react';
+import Image from '@/components/ui/image-shim';
 
-import dynamic from 'next/dynamic';
-import { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
-
-const LaserFlow = dynamic(() => import("@/components/ui/LaserFlow"), {
-    ssr: false,
-    loading: () => (
-        <div className="w-full h-full flex items-center justify-center bg-[#060010]">
-            <div className="w-16 h-16 border-4 border-violet-500/30 border-t-violet-500 rounded-full animate-spin" />
-        </div>
-    )
-});
+const LaserFlow = React.lazy(() => import("@/components/ui/LaserFlow"));
 
 export default function LaserPage() {
     const [mounted, setMounted] = useState(false);
@@ -50,13 +40,19 @@ export default function LaserPage() {
             {/* Laser Flow Background */}
             {mounted && (
                 <div className="absolute inset-0">
-                    <LaserFlow
-                        horizontalBeamOffset={0.1}
-                        verticalBeamOffset={0.0}
-                        color="#8B5CF6"
-                        fogIntensity={0.5}
-                        wispDensity={1.2}
-                    />
+                    <Suspense fallback={
+                        <div className="w-full h-full flex items-center justify-center bg-[#060010]">
+                            <div className="w-16 h-16 border-4 border-violet-500/30 border-t-violet-500 rounded-full animate-spin" />
+                        </div>
+                    }>
+                        <LaserFlow
+                            horizontalBeamOffset={0.1}
+                            verticalBeamOffset={0.0}
+                            color="#8B5CF6"
+                            fogIntensity={0.5}
+                            wispDensity={1.2}
+                        />
+                    </Suspense>
                 </div>
             )}
 
@@ -78,11 +74,10 @@ export default function LaserPage() {
                     }}
                 >
                     <Image
-                        src="/video"
+                        src="/video" // Note: Double check if this path is valid in your public folder
                         alt="Dashboard Preview"
                         fill
                         className="object-cover opacity-90 hover:opacity-100 transition-opacity duration-500"
-                        priority
                     />
                     {/* Optional overlay for better text contrast if needed later */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#060010]/80 via-transparent to-transparent pointer-events-none" />
@@ -106,8 +101,6 @@ export default function LaserPage() {
                     maskRepeat: 'no-repeat'
                 }}
             >
-                {/* You can add an image here for the reveal effect */}
-                {/* <Image src="/path/to/image.jpg" alt="Reveal" fill className="object-cover" /> */}
             </div>
         </div>
     );
