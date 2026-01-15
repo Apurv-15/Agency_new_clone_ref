@@ -75,7 +75,7 @@ export function BeamTimeline() {
     });
 
     return (
-        <section ref={containerRef} className="relative bg-black py-32">
+        <section ref={containerRef} className="relative bg-background py-32">
             <div className="container mx-auto px-6 max-w-7xl">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
                     {/* Left Column: Text & Beam */}
@@ -133,7 +133,7 @@ export function BeamTimeline() {
 
                     {/* Right Column: Sticky Image */}
                     <div className="hidden lg:block relative h-full">
-                        <div className="sticky top-1/4 h-[500px] w-full rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-[#0a0a0a]">
+                        <div className="sticky top-1/4 h-[500px] w-full rounded-[2rem] overflow-hidden border border-border shadow-2xl bg-card">
                             {timelineData.map((item) => (
                                 <motion.div
                                     key={item.id}
@@ -156,12 +156,12 @@ export function BeamTimeline() {
                                     <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-2">
                                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/10 backdrop-blur-md mb-4">
                                             <span className={cn("w-2 h-2 rounded-full bg-gradient-to-r", item.color)} />
-                                            <span className="text-xs font-bold tracking-widest uppercase text-white/90">{item.year}</span>
+                                            <span className="text-xs font-bold tracking-widest uppercase text-foreground/90">{item.year}</span>
                                         </div>
-                                        <h3 className="text-3xl font-bold text-white mb-2">{item.title}</h3>
+                                        <h3 className="text-3xl font-bold text-foreground mb-2">{item.title}</h3>
                                         <div className="flex flex-wrap gap-2 mt-4">
                                             {item.tech.map((t) => (
-                                                <span key={t} className="px-3 py-1 bg-black/50 border border-white/10 rounded-full text-xs text-gray-300 backdrop-blur-sm">
+                                                <span key={t} className="px-3 py-1 bg-background/50 border border-border rounded-full text-xs text-muted-foreground backdrop-blur-sm">
                                                     {t}
                                                 </span>
                                             ))}
@@ -214,13 +214,13 @@ function TimelineBlock({ item, index, setActiveId, isActive }: { item: TimelineI
             {/* Desktop Indicator Dot */}
             <div className={cn(
                 "absolute left-8 top-0 -translate-x-1/2 w-4 h-4 rounded-full border-2 transition-colors duration-500 z-20 hidden lg:block",
-                isActive ? "bg-black border-violet-500 scale-125" : "bg-black border-gray-700"
+                isActive ? "bg-background border-primary scale-125" : "bg-background border-border"
             )}>
                 {isActive && <div className="absolute inset-0 bg-violet-500 rounded-full animate-ping opacity-75" />}
             </div>
 
             <span className="text-sm font-mono text-violet-400 mb-2 block">{item.year}</span>
-            <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">{item.title}</h3>
+            <h3 className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">{item.title}</h3>
             <p className="text-lg text-gray-400 leading-relaxed max-w-lg mb-6">
                 {item.description}
             </p>
@@ -232,7 +232,7 @@ function TimelineBlock({ item, index, setActiveId, isActive }: { item: TimelineI
                 <div className="absolute bottom-4 left-4">
                     <div className="flex gap-2">
                         {item.tech.map((t) => (
-                            <span key={t} className="px-2 py-1 bg-black/60 rounded text-[10px] text-gray-300 backdrop-blur-md">
+                            <span key={t} className="px-2 py-1 bg-background/60 rounded text-[10px] text-muted-foreground backdrop-blur-md">
                                 {t}
                             </span>
                         ))}

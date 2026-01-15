@@ -6,7 +6,7 @@ import { WordReveal } from "@/components/ui/word-reveal";
 
 export function CTA() {
     return (
-        <section className="py-32 relative overflow-hidden" style={{ backgroundColor: '#0a0e27' }}>
+        <section className="py-32 relative overflow-hidden bg-background">
             {/* Radial glow background */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-violet-900/20 via-black to-black" />
 
