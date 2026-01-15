@@ -1,3 +1,8 @@
+"use client";
+
+// This file contains the LaserHeroV2 component with the original hardcoded dark theme logic (pre-Vite migration tweaks).
+// Useful for reference or if you need to revert to a strictly dark-only hero section.
+
 import React, { useState, useEffect, useRef, Suspense } from 'react';
 import Image from '@/components/ui/image-shim';
 import { motion } from 'framer-motion';
@@ -80,7 +85,7 @@ export function LaserHeroV2({
 
     return (
         <section
-            className="relative h-[120vh] w-full overflow-hidden bg-[#060010] dark:bg-[#060010] bg-gradient-to-b from-blue-50 to-blue-100"
+            className="relative h-[120vh] w-full overflow-hidden bg-[#060010]"
             style={{
                 willChange: 'transform',
                 transform: 'translateZ(0)',
@@ -98,8 +103,8 @@ export function LaserHeroV2({
             >
                 {mounted && (
                     <Suspense fallback={
-                        <div className="w-full h-full flex items-center justify-center bg-background">
-                            <div className="w-16 h-16 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
+                        <div className="w-full h-full flex items-center justify-center bg-[#060010]">
+                            <div className="w-16 h-16 border-4 border-violet-500/30 border-t-violet-500 rounded-full animate-spin" />
                         </div>
                     }>
                         <LaserFlow
@@ -117,7 +122,7 @@ export function LaserHeroV2({
             <div className="absolute top-0 left-0 right-0 z-20 px-6 md:px-12 lg:px-20 pt-32">
                 <div className="max-w-7xl w-full mx-auto">
                     <div className="flex flex-col items-start text-left max-w-xl lg:max-w-2xl">
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-foreground mb-4 md:mb-6">
+                        <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight text-white mb-4 md:mb-6">
                             {showText ? (
                                 <>
                                     <Typewriter text="Empowering" duration={0.04} />
@@ -126,7 +131,7 @@ export function LaserHeroV2({
                                 </>
                             ) : null}
                         </h1>
-                        <div className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-md lg:max-w-lg mb-6 md:mb-8 font-light leading-relaxed">
+                        <div className="text-base md:text-lg text-gray-400 max-w-md lg:max-w-lg mb-6 md:mb-8 font-light leading-relaxed">
                             {showText ? (
                                 <Typewriter
                                     text="Leveraging advanced ICT solutions and best business practices to drive competitive growth and rural transformation."
@@ -148,7 +153,7 @@ export function LaserHeroV2({
                                 });
                             }}
                             type="button"
-                            className="group relative overflow-hidden bg-primary hover:bg-primary/90 px-8 py-3.5 text-sm font-bold text-primary-foreground rounded-full transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2"
+                            className="group relative overflow-hidden bg-white hover:bg-white/90 px-8 py-3.5 text-sm font-bold text-black rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_35px_rgba(255,255,255,0.5)] flex items-center gap-2"
                         >
                             SEE IN ACTION
                             <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -172,7 +177,7 @@ export function LaserHeroV2({
                 }}
             >
                 <div
-                    className="w-full h-full rounded-3xl flex items-center justify-center relative overflow-hidden bg-card border-2 border-primary/50"
+                    className="w-full h-full rounded-3xl flex items-center justify-center relative overflow-hidden bg-[#060010] border-2 border-violet-500/50"
                     style={{
                         boxShadow: '0 0 40px rgba(139, 92, 246, 0.3), inset 0 0 40px rgba(139, 92, 246, 0.1)'
                     }}
@@ -185,7 +190,7 @@ export function LaserHeroV2({
                         priority
                     />
                     {/* Inner Gradient Overlay for Depth */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#060010]/80 via-transparent to-transparent pointer-events-none" />
                 </div>
             </motion.div>
 
