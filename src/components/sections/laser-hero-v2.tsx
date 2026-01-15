@@ -121,16 +121,16 @@ export function LaserHeroV2({
                         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-white mb-4 md:mb-6">
                             {showText ? (
                                 <>
-                                    <Typewriter text="Softman Engineering" duration={0.04} />
+                                    <Typewriter text="Empowering" duration={0.04} />
                                     <br />
-                                    <Typewriter text="Excellence" delay={0.8} duration={0.04} />
+                                    <Typewriter text="Enterprises" delay={0.8} duration={0.04} />
                                 </>
                             ) : null}
                         </h1>
                         <div className="text-base md:text-lg lg:text-xl text-gray-400 max-w-md lg:max-w-lg mb-6 md:mb-8 font-light leading-relaxed">
                             {showText ? (
                                 <Typewriter
-                                    text="We build scalable, high-performance software solutions tailored to your business needs."
+                                    text="Leveraging advanced ICT solutions and best business practices to drive competitive growth and rural transformation."
                                     delay={1.5}
                                     duration={0.02}
                                 />
