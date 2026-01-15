@@ -15,7 +15,7 @@ export function SocialProof() {
     ];
 
     return (
-        <section className="py-20 border-y border-white/5 overflow-hidden" style={{ backgroundColor: '#0a0e27' }}>
+        <section className="py-32 relative overflow-hidden bg-background">
             <div className="container mx-auto px-6">
                 <div className="relative">
                     <motion.div

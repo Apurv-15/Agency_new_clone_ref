@@ -6,8 +6,18 @@ import { Star, Layers, User } from "lucide-react";
 
 export function WhyChooseUs() {
     return (
-        <section className="bg-white py-24 font-sans text-center">
-            <div className="max-w-7xl mx-auto px-6">
+        <section className="relative bg-white py-24 font-sans text-center overflow-hidden">
+            {/* Soft Yellow Glow (Background Effect) */}
+            <div
+                className="absolute inset-0 z-0 pointer-events-none"
+                style={{
+                    backgroundImage: `radial-gradient(circle at center, #FFF991 0%, transparent 70%)`,
+                    opacity: 0.6,
+                    mixBlendMode: "multiply",
+                }}
+            />
+
+            <div className="relative z-10 max-w-7xl mx-auto px-6">
                 {/* Header */}
                 <div className="mb-20 flex flex-col items-center">
                     <div className="bg-gray-100 rounded-full px-4 py-1.5 flex items-center gap-2 mb-6 shadow-sm border border-gray-100/50">
