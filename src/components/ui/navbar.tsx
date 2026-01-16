@@ -28,19 +28,23 @@ export function Navbar() {
             <a href="#how-it-works" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               How It Works
             </a>
-            <a href="#research" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              Research
+            <a href="/#connect-us" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Contact
             </a>
           </div>
 
           {/* CTA Buttons */}
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground hover:bg-accent">
-              Log In
-            </Button>
-            <Button size="sm" className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 shadow-lg shadow-violet-500/50">
-              START FREE
-            </Button>
+            <Link to="/dashboard">
+              <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground hover:bg-accent text-xs font-bold uppercase tracking-widest">
+                Admin Panel
+              </Button>
+            </Link>
+            <a href="/#connect-us">
+              <Button size="sm" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg shadow-blue-500/50 text-xs font-bold uppercase tracking-widest">
+                Connect Now
+              </Button>
+            </a>
           </div>
         </div>
       </div>

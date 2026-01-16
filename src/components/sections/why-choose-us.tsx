@@ -1,19 +1,16 @@
 "use client";
 
-import React from "react";
 import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
 import { Star, Layers, User } from "lucide-react";
 
 export function WhyChooseUs() {
     return (
-        <section className="relative bg-white py-24 font-sans text-center overflow-hidden">
-            {/* Soft Yellow Glow (Background Effect) */}
-            <div
-                className="absolute inset-0 z-0 pointer-events-none"
+        <section className="relative mx-4 md:mx-6 bg-gradient-to-b from-white via-[#F0F9FF] to-white py-24 font-sans text-center overflow-hidden rounded-[60px] md:rounded-[100px] border border-slate-100/50 shadow-[0_-20px_40px_-15px_rgba(0,0,0,0.03)]">
+            {/* Subtle Texture Overlay */}
+            <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
                 style={{
-                    backgroundImage: `radial-gradient(circle at center, #FFF991 0%, transparent 70%)`,
-                    opacity: 0.6,
-                    mixBlendMode: "multiply",
+                    backgroundImage: 'radial-gradient(#000 1px, transparent 0)',
+                    backgroundSize: '40px 40px'
                 }}
             />
 
