@@ -5,7 +5,7 @@ import { Navbar } from "@/components/ui/navbar";
 import { SoftmanHero } from "@/components/sections/softman-hero";
 // import { CalendarFeature } from "@/components/sections/calendar-feature";
 import { TestimonialsModern } from "@/components/sections/testimonials-modern";
-import { CTA } from "@/components/sections/cta";
+import { ContactModern } from "@/components/sections/contact-modern";
 import { LazyLoader } from "@/components/ui/lazy-loader";
 import { WhyUs } from "@/components/sections/why-us";
 import { WhyChooseUs } from "@/components/sections/why-choose-us";
@@ -15,7 +15,7 @@ import { Footer } from "@/components/ui/footer";
 import { motion } from "framer-motion";
 
 export default function Home() {
-    const [isLoaded, setIsLoaded] = useState(false);
+    const [, setIsLoaded] = useState(false);
     const [showNavbar, setShowNavbar] = useState(false);
     const [showText, setShowText] = useState(false);
 
@@ -74,11 +74,11 @@ export default function Home() {
                     animate={{ opacity: showText ? 1 : 0 }}
                     transition={{ delay: 2, duration: 1 }}
                 >
-                    <TestimonialsModern />
                     <WhyUs />
                     <WhyChooseUs />
                     <BeamTimeline />
-                    <CTA />
+                    <ContactModern />
+                    <TestimonialsModern />
                     <Footer />
                 </motion.div>
             </motion.div>
