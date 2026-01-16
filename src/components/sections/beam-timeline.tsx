@@ -75,7 +75,7 @@ export function BeamTimeline() {
     });
 
     return (
-        <section ref={containerRef} className="relative bg-background py-32">
+        <section id="projects" ref={containerRef} className="relative bg-background py-32">
             <div className="container mx-auto px-6 max-w-7xl">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
                     {/* Left Column: Text & Beam */}

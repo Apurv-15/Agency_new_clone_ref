@@ -1,7 +1,28 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 export function Navbar() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const scrollToSection = (sectionId: string) => {
+    // If not on homepage, navigate first then scroll
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-[999] border-b border-border bg-background/50 backdrop-blur-xl">
       <div className="container mx-auto px-6 py-4">
@@ -22,15 +43,18 @@ export function Navbar() {
             <Link to="/partners" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Partners
             </Link>
-            <a href="#product" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              Product
-            </a>
-            <a href="#how-it-works" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              How It Works
-            </a>
-            <a href="/#connect-us" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <button
+              onClick={() => scrollToSection('projects')}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Projects
+            </button>
+            <button
+              onClick={() => scrollToSection('connect-us')}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
               Contact
-            </a>
+            </button>
           </div>
 
           {/* CTA Buttons */}
@@ -40,11 +64,11 @@ export function Navbar() {
                 Admin Panel
               </Button>
             </Link>
-            <a href="/#connect-us">
+            <button onClick={() => scrollToSection('connect-us')}>
               <Button size="sm" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg shadow-blue-500/50 text-xs font-bold uppercase tracking-widest">
                 Connect Now
               </Button>
-            </a>
+            </button>
           </div>
         </div>
       </div>
