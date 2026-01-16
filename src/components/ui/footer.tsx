@@ -76,7 +76,7 @@ export function Footer() {
                     {/* Copyright */}
                     <div className="text-right w-full md:w-auto">
                         <p className="text-muted-foreground text-sm">
-                            Designed by Antigravity. All rights reserved.
+                            © 2024 Softman. All rights reserved.
                         </p>
                     </div>
                 </div>
