@@ -3,7 +3,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Image from "@/components/ui/image-shim";
 import { cn } from "@/lib/utils";
-import { Zap, Cloud, Cpu, Globe } from "lucide-react";
+import { Zap, Cloud, Cpu, Globe, Database, Smartphone, Users, Server } from "lucide-react";
 
 interface TimelineItem {
     id: number;
@@ -19,43 +19,53 @@ interface TimelineItem {
 const timelineData: TimelineItem[] = [
     {
         id: 1,
-        year: "Q1 2024",
-        title: "The Genesis of Softman",
-        description: "Founded with a mission to bridge the gap between complex engineering and elegant user experiences. We started with a small team of elite developers and a big vision.",
-        icon: <Zap className="w-5 h-5" />,
-        tech: ["Vision", "Strategy", "Foundation"],
-        image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1200",
-        color: "from-violet-500 to-indigo-500",
-    },
-    {
-        id: 2,
-        year: "Q2 2024",
-        title: "Project Nexus",
-        description: "Built a distributed cloud architecture for a Fortune 500 fintech firm, handling 1M+ transactions per second with zero downtime.",
-        icon: <Cloud className="w-5 h-5" />,
-        tech: ["Kubernetes", "AWS", "Go"],
-        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200",
+        year: "2021",
+        title: "Centralized Data Exchange & Reporting Platform",
+        description: "Launched MediOrder as a unified platform for seamless data exchange, dashboards, and MIS reporting.",
+        icon: <Database className="w-5 h-5" />,
+        tech: ["MediOrder", "Data Exchange", "MIS Reporting"],
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200",
         color: "from-blue-500 to-cyan-500",
     },
     {
+        id: 2,
+        year: "2022",
+        title: "Enhanced Data Integration via Pharmacc Mobile App",
+        description: "Released mobile application for Pharmacc with seamless API integration for third-party data aggregators.",
+        icon: <Smartphone className="w-5 h-5" />,
+        tech: ["Pharmacc", "Mobile App", "API Integration"],
+        image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=1200",
+        color: "from-violet-500 to-purple-500",
+    },
+    {
         id: 3,
-        year: "Q3 2024",
-        title: "Titan AI Integration",
-        description: "Deployed a custom LLM-based automation system for international logistics, reducing operational overhead by 40% in the first quarter.",
-        icon: <Cpu className="w-5 h-5" />,
-        tech: ["Python", "PyTorch", "OpenAI"],
-        image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200",
-        color: "from-purple-500 to-pink-500",
+        year: "2023",
+        title: "Cloud Enablement for Multi-Store Operations",
+        description: "Released PHARTAIL 10 cloud-based version. Launched Chain Shopee to support multi store operations.",
+        icon: <Cloud className="w-5 h-5" />,
+        tech: ["PHARTAIL 10", "Cloud", "Multi-Store"],
+        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200",
+        color: "from-sky-500 to-indigo-500",
     },
     {
         id: 4,
-        year: "Q4 2024",
-        title: "Global Expansion",
-        description: "Expanded our operations to three continents, serving clients in London, Tokyo, and San Francisco with round-the-clock engineering support.",
-        icon: <Globe className="w-5 h-5" />,
-        tech: ["Scale", "Infrastructure", "Global"],
-        image: "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&q=80&w=1200",
-        color: "from-emerald-500 to-teal-500",
+        year: "2024",
+        title: "Comprehensive CRM & Mobile Solutions Launch",
+        description: "Launched Patient CRM, SevaPlus, WIFITail, and RackReFill and GroupStockist Ordering apps for wholesalers.",
+        icon: <Users className="w-5 h-5" />,
+        tech: ["Patient CRM", "SevaPlus", "Wholesale Apps"],
+        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200",
+        color: "from-pink-500 to-rose-500",
+    },
+    {
+        id: 5,
+        year: "2025",
+        title: "Unified Portal & Cloud Migration",
+        description: "Consolidated all apps into a unified portal and migrated from Softman Cloud to AWS Cloud.",
+        icon: <Server className="w-5 h-5" />,
+        tech: ["AWS Cloud", "Unified Portal", "Migration"],
+        image: "https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?auto=format&fit=crop&q=80&w=1200",
+        color: "from-amber-500 to-orange-500",
     },
 ];
 
@@ -153,14 +163,14 @@ export function BeamTimeline() {
 
                                     {/* Content Overlay */}
                                     <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-2">
-                                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/10 backdrop-blur-md mb-4">
+                                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-md mb-4">
                                             <span className={cn("w-2 h-2 rounded-full bg-gradient-to-r", item.color)} />
-                                            <span className="text-xs font-bold tracking-widest uppercase text-foreground/90">{item.year}</span>
+                                            <span className="text-xs font-bold tracking-widest uppercase text-white/90">{item.year}</span>
                                         </div>
-                                        <h3 className="text-3xl font-bold text-foreground mb-2">{item.title}</h3>
+                                        <h3 className="text-3xl font-bold text-white mb-2">{item.title}</h3>
                                         <div className="flex flex-wrap gap-2 mt-4">
                                             {item.tech.map((t) => (
-                                                <span key={t} className="px-3 py-1 bg-background/50 border border-border rounded-full text-xs text-muted-foreground backdrop-blur-sm">
+                                                <span key={t} className="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-xs text-white/80 backdrop-blur-sm">
                                                     {t}
                                                 </span>
                                             ))}
