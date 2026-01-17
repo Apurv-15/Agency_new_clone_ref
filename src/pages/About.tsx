@@ -53,7 +53,7 @@ export default function AboutFuturistic() {
                                     <span className="text-xs font-bold tracking-widest uppercase text-blue-800">Operational Since 1992</span>
                                 </div>
 
-                                <h1 className="text-6xl md:text-8xl font-black tracking-tight mb-6 leading-[0.9] text-[#1D1D1F]">
+                                <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-6 leading-[0.9] text-[#1D1D1F]">
                                     We Are <br />
                                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-violet-600">
                                         Softman.
@@ -62,7 +62,7 @@ export default function AboutFuturistic() {
                             </div>
 
                             <div className="space-y-6">
-                                <p className="text-2xl md:text-3xl font-medium text-[#424245] max-w-2xl leading-tight">
+                                <p className="text-xl md:text-2xl font-medium text-[#424245] max-w-2xl leading-tight">
                                     An <span className="text-[#1D1D1F] font-bold">ISO 9001:2000</span> certified powerhouse.
                                     Architecting digital infrastructure with precision engineering.
                                 </p>
