@@ -1,4 +1,3 @@
-"use client";
 
 import { Navbar } from "@/components/ui/navbar";
 import { Component as PageBackground } from "@/components/ui/background-components";

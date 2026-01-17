@@ -1,4 +1,3 @@
-"use client";
 
 // This file contains the LaserHeroV2 component with the original hardcoded dark theme logic (pre-Vite migration tweaks).
 // Useful for reference or if you need to revert to a strictly dark-only hero section.

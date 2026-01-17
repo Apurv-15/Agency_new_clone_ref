@@ -1,4 +1,3 @@
-"use client";
 
 import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
 import { Star, Layers, User } from "lucide-react";

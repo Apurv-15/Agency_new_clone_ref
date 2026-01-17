@@ -1,4 +1,3 @@
-"use client";
 
 import { useGSAP } from "@gsap/react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";

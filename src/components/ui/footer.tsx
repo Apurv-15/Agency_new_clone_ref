@@ -1,4 +1,3 @@
-"use client";
 
 import { Instagram, Linkedin, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";

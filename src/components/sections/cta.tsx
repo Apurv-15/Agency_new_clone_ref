@@ -1,4 +1,3 @@
-"use client";
 
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { ShineButton } from "@/components/ui/shine-button";

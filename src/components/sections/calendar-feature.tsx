@@ -1,4 +1,3 @@
-"use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Bell, Calendar as CalendarIcon, ChevronLeft, ChevronRight, Clock, Command, LayoutGrid, MessageSquare, PieChart, Plus, Search, Settings, Users } from "lucide-react";
