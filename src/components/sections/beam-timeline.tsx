@@ -1,9 +1,10 @@
 
 import React, { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 import Image from "@/components/ui/image-shim";
 import { cn } from "@/lib/utils";
-import { Zap, Cloud, Cpu, Globe, Database, Smartphone, Users, Server } from "lucide-react";
+import { Cloud, Database, Smartphone, Users, Server } from "lucide-react";
+import ElectricBeam from "@/components/ui/electric-beam";
 
 interface TimelineItem {
     id: number;
@@ -90,49 +91,15 @@ export function BeamTimeline() {
                     {/* Left Column: Text & Beam */}
                     <div className="relative">
                         {/* The Vertical Beam Line Container */}
-                        <div className="absolute left-8 top-0 bottom-0 w-[1px] bg-white/5 hidden lg:block -translate-x-1/2">
-                            {/* The Progress Beam */}
-                            <motion.div
-                                className="absolute top-0 left-0 w-full bg-gradient-to-b from-violet-600 via-blue-400 to-white origin-top"
-                                style={{
-                                    height: useTransform(scaleY, [0, 1], ["0%", "100%"]),
-                                    boxShadow: "0 0 15px rgba(139, 92, 246, 0.5)"
-                                }}
-                            >
-                                {/* Spark Head */}
-                                <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
-                                    {/* Primary Core */}
-                                    <div className="w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_10px_#fff,0_0_20px_#8B5CF6,0_0_30px_#8B5CF6]" />
-
-                                    {/* Animated Pulse */}
-                                    <motion.div
-                                        animate={{
-                                            scale: [1, 2, 1],
-                                            opacity: [0.5, 0, 0.5]
-                                        }}
-                                        transition={{
-                                            duration: 1.5,
-                                            repeat: Infinity,
-                                            ease: "easeInOut"
-                                        }}
-                                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-violet-500 rounded-full blur-sm"
-                                    />
-
-                                    {/* Trail Spark */}
-                                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[2px] h-20 bg-gradient-to-t from-white via-violet-500 to-transparent blur-[1px]" />
-
-                                    {/* Lateral Glows */}
-                                    <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-8 h-[1px] bg-gradient-to-r from-transparent via-violet-500/50 to-transparent" />
-                                </div>
-                            </motion.div>
+                        <div className="absolute left-8 top-0 bottom-0 w-20 hidden lg:block -translate-x-1/2">
+                            <ElectricBeam scrollYProgress={scaleY} color="#8B5CF6" />
                         </div>
 
                         <div className="space-y-32 relative z-10 pb-32">
-                            {timelineData.map((item, index) => (
+                            {timelineData.map((item) => (
                                 <TimelineBlock
                                     key={item.id}
                                     item={item}
-                                    index={index}
                                     setActiveId={setActiveId}
                                     isActive={activeId === item.id}
                                 />
@@ -186,16 +153,8 @@ export function BeamTimeline() {
     );
 }
 
-function TimelineBlock({ item, index, setActiveId, isActive }: { item: TimelineItem; index: number; setActiveId: (id: number) => void; isActive: boolean }) {
+function TimelineBlock({ item, setActiveId, isActive }: { item: TimelineItem; setActiveId: (id: number) => void; isActive: boolean }) {
     const ref = useRef<HTMLDivElement>(null);
-    const isInView = useTransform(
-        useScroll({
-            target: ref,
-            offset: ["start center", "end center"]
-        }).scrollYProgress,
-        [0, 1],
-        [0, 1]
-    );
 
     // Update active ID when this block is in view
     // We use a simple effect to detect when this component is roughly in the center
