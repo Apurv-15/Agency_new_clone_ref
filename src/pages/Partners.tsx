@@ -24,7 +24,7 @@ export default function PartnersPage() {
                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                         className="relative z-10"
                     >
-                        <h1 className="text-6xl md:text-8xl font-serif text-slate-900 tracking-tight mb-8">
+                        <h1 className="text-5xl md:text-7xl font-serif text-slate-900 tracking-tight mb-8">
                             Where <span className="italic font-normal">Aesthetics</span> and <br className="hidden md:block" />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900">Functionality</span> Meet
                         </h1>
@@ -38,26 +38,7 @@ export default function PartnersPage() {
                 <Partners3D />
 
                 {/* Refined Call to Action */}
-                <section className="py-40 px-6 text-center bg-[#FBFBF9] border-t border-slate-100 relative overflow-hidden">
-                    <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
-                        style={{ backgroundImage: 'radial-gradient(#000 1.5px, transparent 0)', backgroundSize: '40px 40px' }}
-                    />
 
-                    <div className="max-w-4xl mx-auto relative z-10">
-                        <h2 className="text-4xl md:text-5xl font-serif text-slate-900 mb-8 tracking-tight">Expand the Global Network</h2>
-                        <p className="text-slate-500 mb-12 text-lg leading-relaxed max-w-2xl mx-auto opacity-70">
-                            Partner with us to architect the next generation of infrastructure.
-                        </p>
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                            <button className="bg-slate-900 text-white px-12 py-5 rounded-full font-bold hover:bg-black transition-all shadow-2xl shadow-black/10 text-sm tracking-widest uppercase">
-                                Connect with us
-                            </button>
-                            <button className="bg-transparent text-slate-900 border border-slate-200 px-12 py-5 rounded-full font-bold hover:bg-white transition-all text-sm tracking-widest uppercase">
-                                View Capabilities
-                            </button>
-                        </div>
-                    </div>
-                </section>
             </main>
 
             <Footer />

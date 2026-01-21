@@ -1,6 +1,79 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@font-face {
+    font-family: "Mona Sans";
+    src: url("https://assets.codepen.io/64/Mona-Sans.woff2") format("woff2 supports variations"),
+        url("https://assets.codepen.io/64/Mona-Sans.woff2") format("woff2-variations");
+    font-weight: 100 1000;
+}
+
+@property --hue {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+}
+
+@property --rotate {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+}
+
+@property --bg-y {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+}
+
+@property --bg-x {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+}
+
+@property --glow-translate-y {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+}
+
+@property --bg-size {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+}
+
+@property --glow-opacity {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+}
+
+@property --glow-blur {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+}
+
+@property --glow-scale {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 2;
+}
+
+@property --glow-radius {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 2;
+}
+
+@property --white-shadow {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

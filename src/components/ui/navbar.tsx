@@ -1,27 +1,14 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 export function Navbar() {
   const location = useLocation();
-  const navigate = useNavigate();
+  // const navigate = useNavigate(); // Unused if we only use Links
 
-  const scrollToSection = (sectionId: string) => {
-    // If not on homepage, navigate first then scroll
-    if (location.pathname !== '/') {
-      navigate('/');
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 100);
-    } else {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-  };
+  const isActive = (path: string) => location.pathname === path;
+
+  const linkClass = (path: string) =>
+    `text-sm font-medium transition-colors ${isActive(path) ? 'text-foreground font-bold' : 'text-muted-foreground hover:text-foreground'}`;
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-[999] border-b border-border bg-background/50 backdrop-blur-xl">
@@ -37,24 +24,22 @@ export function Navbar() {
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/about" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              About
+
+            <Link to="/process" className={linkClass('/process')}>
+              Home
             </Link>
-            <Link to="/partners" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <Link to="/partners" className={linkClass('/partners')}>
               Partners
             </Link>
-            <button
-              onClick={() => scrollToSection('projects')}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Projects
-            </button>
-            <button
-              onClick={() => scrollToSection('connect-us')}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
+            <Link to="/timeline" className={linkClass('/timeline')}>
+              Timeline
+            </Link>
+            <Link to="/products" className={linkClass('/products')}>
+              Products
+            </Link>
+            <Link to="/contact" className={linkClass('/contact')}>
               Contact
-            </button>
+            </Link>
           </div>
 
           {/* CTA Buttons */}
@@ -64,11 +49,7 @@ export function Navbar() {
                 Admin Panel
               </Button>
             </Link>
-            <button onClick={() => scrollToSection('connect-us')}>
-              <Button size="sm" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg shadow-blue-500/50 text-xs font-bold uppercase tracking-widest">
-                Connect Now
-              </Button>
-            </button>
+
           </div>
         </div>
       </div>

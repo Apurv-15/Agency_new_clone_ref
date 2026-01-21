@@ -7,119 +7,112 @@ const PARTNERS = [
     {
         name: "Varroc",
         category: "Manufacturing",
-        logo: "https://logo.clearbit.com/varroc.com",
+        logo: "/assets/partners/varroc.jpg",
         fallback: "https://ui-avatars.com/api/?name=V&background=0066FF&color=fff",
         color: "blue"
     },
     {
         name: "Greaves Cotton",
         category: "Engine Systems",
-        logo: "https://logo.clearbit.com/greavescotton.com",
+        logo: "/assets/partners/greaves.jpg",
         fallback: "https://ui-avatars.com/api/?name=GC&background=a855f7&color=fff",
         color: "purple"
     },
     {
         name: "Videocon",
         category: "Electronics",
-        logo: "https://logo.clearbit.com/videoconworld.com",
+        logo: "/assets/partners/videocon.jpg",
         fallback: "https://ui-avatars.com/api/?name=V&background=0ea5e9&color=fff",
         color: "sky"
     },
     {
-        name: "Endurance",
+        name: "Endurance Technologies",
         category: "Automotive",
-        logo: "https://logo.clearbit.com/endurancegroup.com",
+        logo: "/assets/partners/endurance.jpg",
         fallback: "https://ui-avatars.com/api/?name=E&background=6366f1&color=fff",
         color: "indigo"
     },
     {
-        name: "Sterlite / STL",
+        name: "Sterlite",
         category: "Infrastructure",
-        logo: "https://logo.clearbit.com/stl.tech",
+        logo: "/assets/partners/sterlite.jpg",
         fallback: "https://ui-avatars.com/api/?name=S&background=8b5cf6&color=fff",
         color: "violet"
     },
     {
         name: "Ceekay Daikin",
         category: "Industrial",
-        logo: "https://logo.clearbit.com/daikinindia.com",
+        logo: "/assets/partners/ceekay.jpg",
         fallback: "https://ui-avatars.com/api/?name=CD&background=14b8a6&color=fff",
         color: "teal"
     },
     {
         name: "DSK Digital",
         category: "Consulting",
-        logo: "https://logo.clearbit.com/dskdigital.com",
+        logo: "/assets/partners/dsk.jpg",
         fallback: "https://ui-avatars.com/api/?name=DSK&background=f43f5e&color=fff",
         color: "pink"
     },
     {
         name: "Bartronics",
         category: "Technology",
-        logo: "https://logo.clearbit.com/bartronics.com",
+        logo: "/assets/partners/bartronics.jpg",
         fallback: "https://ui-avatars.com/api/?name=B&background=f59e0b&color=fff",
         color: "amber"
     },
     {
         name: "Mother Dairy",
         category: "Food & Dairy",
-        logo: "https://logo.clearbit.com/motherdairy.com",
+        logo: "/assets/partners/motherdairy.jpg",
         fallback: "https://ui-avatars.com/api/?name=MD&background=22c55e&color=fff",
         color: "green"
     },
     {
-        name: "MGB",
+        name: "Maharashtra Gramin Bank",
         category: "Banking",
-        logo: "https://logo.clearbit.com/mgb.co.in",
+        logo: "/assets/partners/mgb.jpg",
         fallback: "https://ui-avatars.com/api/?name=MGB&background=3b82f6&color=fff",
         color: "blue"
     },
     {
         name: "NDDB",
         category: "Cooperatives",
-        logo: "https://logo.clearbit.com/nddb.coop",
+        logo: "/assets/partners/nddb.jpg",
         fallback: "https://ui-avatars.com/api/?name=NDDB&background=06b6d4&color=fff",
         color: "cyan"
     },
     {
         name: "Mission Milk",
         category: "National Dairy",
-        logo: "https://www.nddb.coop/sites/default/files/ndp_logo.png",
+        logo: "/assets/partners/missionmilk.jpg",
         fallback: "https://ui-avatars.com/api/?name=MM&background=84cc16&color=fff",
         color: "lime"
     },
     {
-        name: "Network Hub",
-        category: "Operations",
-        logo: "https://cdn-icons-png.flaticon.com/512/1150/1150626.png",
-        fallback: "https://ui-avatars.com/api/?name=O&background=f97316&color=fff",
-        color: "orange"
-    },
-    {
-        name: "Sujan",
-        category: "Corporate Wisdom",
-        logo: "https://logo.clearbit.com/sujan.in",
+        name: "Sujan Corporate Wisdom",
+        category: "Corporate",
+        logo: "/assets/partners/sujan.jpg",
         fallback: "https://ui-avatars.com/api/?name=S&background=d946ef&color=fff",
         color: "fuchsia"
     },
     {
         name: "AIOCD AWACS",
         category: "Healthcare",
-        logo: "https://logo.clearbit.com/aiocdawacs.com",
+        logo: "/assets/partners/aiocd.jpg",
         fallback: "https://ui-avatars.com/api/?name=AA&background=ef4444&color=fff",
         color: "red"
     },
     {
         name: "Aegis",
         category: "Global Services",
-        logo: "https://logo.clearbit.com/aegisindia.com",
+        logo: "/assets/partners/aegis.jpg",
         fallback: "https://ui-avatars.com/api/?name=AE&background=a855f7&color=fff",
         color: "purple"
     },
     {
         name: "Amul",
         category: "Food & Dairy",
-        logo: "https://logo.clearbit.com/amul.com",
+        logo: "/assets/partners/amul.jpg",
         fallback: "https://ui-avatars.com/api/?name=A&background=2563eb&color=fff",
         color: "blue"
     }
@@ -247,10 +240,9 @@ export function Partners3D() {
     // Grouping for 17 items in Honeycomb Mesh effect
     const rows = [
         PARTNERS.slice(0, 4),    // 4
-        PARTNERS.slice(4, 7),    // 3
-        PARTNERS.slice(7, 11),   // 4
-        PARTNERS.slice(11, 14),  // 3
-        PARTNERS.slice(14, 17)   // 3
+        PARTNERS.slice(4, 8),    // 4
+        PARTNERS.slice(8, 12),   // 4
+        PARTNERS.slice(12, 16)   // 4
     ];
 
     return (

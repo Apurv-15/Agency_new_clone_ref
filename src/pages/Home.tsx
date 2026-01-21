@@ -3,12 +3,7 @@ import { useState } from "react";
 import { Navbar } from "@/components/ui/navbar";
 import { SoftmanHero } from "@/components/sections/softman-hero";
 // import { CalendarFeature } from "@/components/sections/calendar-feature";
-import { TestimonialsModern } from "@/components/sections/testimonials-modern";
-import { ContactModern } from "@/components/sections/contact-modern";
 import { LazyLoader } from "@/components/ui/lazy-loader";
-import { WhyUs } from "@/components/sections/why-us";
-import { WhyChooseUs } from "@/components/sections/why-choose-us";
-import { BeamTimeline } from "@/components/sections/beam-timeline";
 import { Footer } from "@/components/ui/footer";
 
 import { motion } from "framer-motion";
@@ -63,6 +58,8 @@ export default function Home() {
                 {/* Softman Hero */}
                 <SoftmanHero />
 
+                {/* Lifecycle Methodology Section - Removed */}
+
                 {/* Calendar Feature Section */}
                 {/* <CalendarFeature /> */}
 
@@ -73,11 +70,11 @@ export default function Home() {
                     animate={{ opacity: showText ? 1 : 0 }}
                     transition={{ delay: 2, duration: 1 }}
                 >
-                    <WhyUs />
+                    {/* <WhyUs /> Can be moved to About or new page
                     <WhyChooseUs />
-                    <BeamTimeline />
-                    <ContactModern />
-                    <TestimonialsModern />
+                    <BeamTimeline /> -> Moves to /projects
+                    <ContactModern /> -> Moves to /contact
+                    <TestimonialsModern /> */}
                     <Footer />
                 </motion.div>
             </motion.div>

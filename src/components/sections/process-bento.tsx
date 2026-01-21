@@ -1,84 +1,97 @@
-
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
     Search,
     Code2,
     Users,
     Headphones,
     CheckCircle2,
-    ArrowUpRight
+    ChevronLeft,
+    ChevronRight
 } from 'lucide-react';
+import './glow-cards.css';
 
 const PROCESS_STEPS = [
     {
         title: "Business Analysis",
         icon: <Search className="w-6 h-6" />,
         color: "blue",
-        gradient: "from-blue-500/20 to-cyan-500/20",
-        border: "border-blue-100",
-        textColor: "text-blue-700",
         items: [
             "Deep dive into customer requirements",
             "Agile flexibility for emerging needs",
             "Industry best-practice integration",
             "Sound foundational mapping"
         ],
-        description: "Strategically defining the digital blueprint before a single line of code is written.",
-        size: "md:col-span-2 md:row-span-1"
+        description: "Strategically defining the digital blueprint before a single line of code is written."
     },
     {
         title: "Software Development",
         icon: <Code2 className="w-6 h-6" />,
         color: "orange",
-        gradient: "from-orange-500/20 to-amber-500/20",
-        border: "border-orange-100",
-        textColor: "text-orange-700",
         items: [
             "Cutting-edge development platforms",
             "Skilled & veteran engineering team",
             "Rapid Application Development (RAD)",
             "Enterprise-grade version control"
         ],
-        description: "Transforming concepts into robust, scalable software solutions with speed and precision.",
-        size: "md:col-span-1 md:row-span-2"
+        description: "Transforming concepts into robust, scalable software solutions with speed and precision."
     },
     {
         title: "Implementation Assistance",
         icon: <Users className="w-6 h-6" />,
         color: "purple",
-        gradient: "from-purple-500/20 to-violet-500/20",
-        border: "border-purple-100",
-        textColor: "text-purple-700",
         items: [
             "Comprehensive user training",
             "End-to-end data management",
             "Advanced migration utilities",
             "On-site start-up assistance"
         ],
-        description: "Ensuring seamless integration and full operational readiness from day one.",
-        size: "md:col-span-1 md:row-span-2"
+        description: "Ensuring seamless integration and full operational readiness from day one."
     },
     {
         title: "Customer Support",
         icon: <Headphones className="w-6 h-6" />,
         color: "teal",
-        gradient: "from-teal-500/20 to-emerald-500/20",
-        border: "border-teal-100",
-        textColor: "text-teal-700",
         items: [
             "Extensive channel partner network",
             "Centralized remote support center",
             "On-demand training & demo sessions",
             "CRM-driven experience tracking"
         ],
-        description: "Beyond delivery, we provide continuous excellence and localized support networks.",
-        size: "md:col-span-2 md:row-span-1"
+        description: "Beyond delivery, we provide continuous excellence and localized support networks."
     }
 ];
 
+const COLOR_STYLES = {
+    blue: { bg: "bg-blue-50", text: "text-blue-600", tag: "bg-blue-600" },
+    orange: { bg: "bg-orange-50", text: "text-orange-600", tag: "bg-orange-600" },
+    purple: { bg: "bg-purple-50", text: "text-purple-600", tag: "bg-purple-600" },
+    teal: { bg: "bg-teal-50", text: "text-teal-600", tag: "bg-teal-600" }
+};
+
 export function ProcessBento() {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentIndex((prev) => (prev + 1) % PROCESS_STEPS.length);
+        }, 4000);
+        return () => clearInterval(timer);
+    }, []);
+
+    const nextSlide = () => {
+        setCurrentIndex((prev) => (prev + 1) % PROCESS_STEPS.length);
+    };
+
+    const prevSlide = () => {
+        setCurrentIndex((prev) => (prev - 1 + PROCESS_STEPS.length) % PROCESS_STEPS.length);
+    };
+
+    const currentStep = PROCESS_STEPS[currentIndex];
+    const styles = COLOR_STYLES[currentStep.color as keyof typeof COLOR_STYLES];
+
     return (
-        <section className="py-24 px-6 max-w-7xl mx-auto">
+        <section className="py-24 px-6 max-w-7xl mx-auto overflow-hidden">
             <div className="text-center mb-16">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -101,46 +114,90 @@ export function ProcessBento() {
                 </motion.div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(200px,auto)]">
-                {PROCESS_STEPS.map((step, index) => (
-                    <motion.div
-                        key={step.title}
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: index * 0.1 }}
-                        className={`group relative overflow-hidden rounded-[2.5rem] bg-white border ${step.border} p-8 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col justify-between ${step.size}`}
-                    >
-                        {/* Background Decoration */}
-                        <div className={`absolute inset-0 bg-gradient-to-br ${step.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+            <div className="glow-card-scope w-full flex flex-col items-center justify-center">
+                <div className="relative w-full max-w-4xl">
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={currentIndex}
+                            initial={{ opacity: 0, scale: 0.9, rotateX: 10 }}
+                            animate={{ opacity: 1, scale: 1, rotateX: 0 }}
+                            exit={{ opacity: 0, scale: 0.9, rotateX: -10 }}
+                            transition={{ duration: 0.5, ease: "easeOut" }}
+                            className="w-full flex justify-center [perspective:1000px]"
+                        >
+                            <div className="glow-card w-full max-w-3xl aspect-[1.6/1] md:aspect-[2/1]">
+                                <div className="glow-element"></div>
+                                <div className="glow-card-inner">
+                                    <span
+                                        className="tag mb-4 shadow-sm"
+                                        style={{ backgroundColor: `var(--text-color)` }}
+                                    >
+                                        Phase 0{currentIndex + 1}
+                                    </span>
 
-                        <div className="relative z-10">
-                            <div className="flex justify-between items-start mb-6">
-                                <div className={`w-12 h-12 rounded-2xl bg-white shadow-md border ${step.border} flex items-center justify-center ${step.textColor} transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
-                                    {step.icon}
+                                    <div className="flex flex-col md:flex-row gap-8 w-full h-full">
+                                        <div className="flex-1 flex flex-col justify-center">
+                                            <div className="flex items-center gap-4 mb-4">
+                                                <div className={`p-3 rounded-xl ${styles.bg} ${styles.text}`}>
+                                                    {React.cloneElement(currentStep.icon, { className: "w-8 h-8" })}
+                                                </div>
+                                                <h3 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600">
+                                                    {currentStep.title}
+                                                </h3>
+                                            </div>
+
+                                            <p className="text-slate-600 text-lg mb-8 leading-relaxed">
+                                                {currentStep.description}
+                                            </p>
+                                        </div>
+
+                                        <div className="flex-1 bg-slate-50/50 rounded-2xl p-6 flex flex-col justify-center border border-slate-100">
+                                            <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">Key Deliverables</h4>
+                                            <ul className="grid gap-3">
+                                                {currentStep.items.map((item, i) => (
+                                                    <li key={i} className="flex items-start gap-3 text-slate-700 font-medium">
+                                                        <CheckCircle2 className={`w-5 h-5 ${styles.text} shrink-0 mt-0.5`} />
+                                                        <span className="text-sm md:text-base">{item}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                                <ArrowUpRight className="w-5 h-5 text-slate-300 group-hover:text-slate-600 transition-colors" />
                             </div>
+                        </motion.div>
+                    </AnimatePresence>
 
-                            <h3 className="text-2xl font-black text-slate-800 mb-3">{step.title}</h3>
-                            <p className="text-slate-500 text-sm mb-6 max-w-sm line-clamp-2">
-                                {step.description}
-                            </p>
+                    {/* Navigation Controls */}
+                    <div className="absolute top-1/2 -translate-y-1/2 -left-4 md:-left-12 z-20">
+                        <button
+                            onClick={prevSlide}
+                            className="p-3 rounded-full bg-white shadow-lg border border-slate-100 text-slate-600 hover:text-violet-600 hover:scale-110 transition-all focus:outline-none focus:ring-2 focus:ring-violet-500/20"
+                        >
+                            <ChevronLeft className="w-6 h-6" />
+                        </button>
+                    </div>
+                    <div className="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-12 z-20">
+                        <button
+                            onClick={nextSlide}
+                            className="p-3 rounded-full bg-white shadow-lg border border-slate-100 text-slate-600 hover:text-violet-600 hover:scale-110 transition-all focus:outline-none focus:ring-2 focus:ring-violet-500/20"
+                        >
+                            <ChevronRight className="w-6 h-6" />
+                        </button>
+                    </div>
+                </div>
 
-                            <ul className="space-y-3">
-                                {step.items.map((item, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-slate-600 font-medium text-sm">
-                                        <CheckCircle2 className={`w-4 h-4 ${step.textColor} opacity-60`} />
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        {/* Floating ambient glow */}
-                        <div className={`absolute -bottom-10 -right-10 w-32 h-32 blur-[50px] rounded-full ${step.gradient} opacity-0 group-hover:opacity-60 transition-opacity`} />
-                    </motion.div>
-                ))}
+                {/* Dots Indicator */}
+                <div className="flex gap-2 mt-8">
+                    {PROCESS_STEPS.map((_, idx) => (
+                        <button
+                            key={idx}
+                            onClick={() => setCurrentIndex(idx)}
+                            className={`h-2 rounded-full transition-all duration-300 ${idx === currentIndex ? "w-8 bg-violet-600" : "w-2 bg-slate-300 hover:bg-slate-400"
+                                }`}
+                        />
+                    ))}
+                </div>
             </div>
         </section>
     );
