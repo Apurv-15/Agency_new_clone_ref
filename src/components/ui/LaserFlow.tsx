@@ -290,9 +290,7 @@ export const LaserFlow: React.FC<Props> = ({
     const baseDprRef = useRef<number>(1);
     const currentDprRef = useRef<number>(1);
     const lastSizeRef = useRef({ width: 0, height: 0, dpr: 0 });
-    const fpsSamplesRef = useRef<number[]>([]);
-    const lastFpsCheckRef = useRef<number>(performance.now());
-    const emaDtRef = useRef<number>(16.7); // ms
+
     const pausedRef = useRef<boolean>(false);
     const inViewRef = useRef<boolean>(true);
 
@@ -478,42 +476,9 @@ export const LaserFlow: React.FC<Props> = ({
 
         let raf = 0;
 
-        const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
-        const dprFloor = 0.6;
-        const lowerThresh = 50;
-        const upperThresh = 58;
-        let lastDprChangeRef = 0;
-        const dprChangeCooldown = 2000;
 
-        const adjustDprIfNeeded = (now: number) => {
-            const elapsed = now - lastFpsCheckRef.current;
-            if (elapsed < 750) return;
 
-            const samples = fpsSamplesRef.current;
-            if (samples.length === 0) {
-                lastFpsCheckRef.current = now;
-                return;
-            }
-            const avgFps = samples.reduce((a, b) => a + b, 0) / samples.length;
 
-            let next = currentDprRef.current;
-            const base = baseDprRef.current;
-
-            if (avgFps < lowerThresh) {
-                next = clamp(currentDprRef.current * 0.85, dprFloor, base);
-            } else if (avgFps > upperThresh && currentDprRef.current < base) {
-                next = clamp(currentDprRef.current * 1.1, dprFloor, base);
-            }
-
-            if (Math.abs(next - currentDprRef.current) > 0.01 && now - lastDprChangeRef > dprChangeCooldown) {
-                currentDprRef.current = next;
-                lastDprChangeRef = now;
-                setSizeNow();
-            }
-
-            fpsSamplesRef.current = [];
-            lastFpsCheckRef.current = now;
-        };
 
         const animate = () => {
             raf = requestAnimationFrame(animate);
@@ -523,10 +488,7 @@ export const LaserFlow: React.FC<Props> = ({
             const dt = Math.max(0, t - prevTime);
             prevTime = t;
 
-            const dtMs = dt * 1000;
-            emaDtRef.current = emaDtRef.current * 0.9 + dtMs * 0.1;
-            const instFps = 1000 / Math.max(1, emaDtRef.current);
-            fpsSamplesRef.current.push(instFps);
+
 
             uniforms.iTime.value = t;
 
