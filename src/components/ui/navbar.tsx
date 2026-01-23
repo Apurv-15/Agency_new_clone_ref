@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Lock } from "lucide-react";
+import { Lock, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
   const isActive = (path: string) => {
@@ -31,8 +34,8 @@ export function Navbar() {
           />
         </Link>
 
-        {/* Navigation Center */}
-        <div className="hidden md:flex flex-1 items-center justify-center gap-8">
+        {/* Navigation Center (Desktop) */}
+        <div className="hidden lg:flex flex-1 items-center justify-center gap-8">
           <Link to="/process" className={navItemClass('/process')}>
             HOME
           </Link>
@@ -48,7 +51,7 @@ export function Navbar() {
 
           {/* MORE Dropdown */}
           <div className="relative group cursor-pointer h-full flex items-center">
-            <span className={cn("flex items-center gap-1", navItemClass('#'))}>
+            <span className={cn("flex items-center gap-1 uppercase", navItemClass('#'))}>
               MORE <span className="text-[10px] transform group-hover:rotate-180 transition-transform">▼</span>
             </span>
 
@@ -72,14 +75,99 @@ export function Navbar() {
         </div>
 
         {/* Right Actions */}
-        <div className="flex items-center gap-4 shrink-0">
+        <div className="flex items-center gap-2 shrink-0">
           {/* Lock Icon Link -> Dashboard */}
           <Link to="/dashboard" className="text-muted-foreground hover:text-foreground transition-colors p-2">
             <Lock className="w-4 h-4" />
           </Link>
-        </div>
 
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="lg:hidden p-2 text-muted-foreground hover:text-foreground transition-colors"
+          >
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="lg:hidden bg-background/95 backdrop-blur-lg border-b border-border overflow-hidden"
+          >
+            <div className="flex flex-col p-6 gap-4">
+              <Link
+                to="/process"
+                className={cn("text-lg font-bold uppercase", isActive('/process') ? "text-foreground" : "text-muted-foreground")}
+                onClick={() => setIsOpen(false)}
+              >
+                HOME
+              </Link>
+              <Link
+                to="/about-us"
+                className={cn("text-lg font-bold uppercase", isActive('/about-us') ? "text-foreground" : "text-muted-foreground")}
+                onClick={() => setIsOpen(false)}
+              >
+                ABOUT US
+              </Link>
+              <Link
+                to="/products"
+                className={cn("text-lg font-bold uppercase", isActive('/products') ? "text-foreground" : "text-muted-foreground")}
+                onClick={() => setIsOpen(false)}
+              >
+                PRODUCTS
+              </Link>
+              <Link
+                to="/projects"
+                className={cn("text-lg font-bold uppercase", isActive('/projects') ? "text-foreground" : "text-muted-foreground")}
+                onClick={() => setIsOpen(false)}
+              >
+                PROJECTS
+              </Link>
+
+              {/* Mobile MORE links */}
+              <div className="flex flex-col gap-3 py-2 border-t border-border">
+                <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">More Resources</span>
+                <Link
+                  to="/timeline"
+                  className="text-base font-semibold text-muted-foreground hover:text-foreground"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Timeline
+                </Link>
+                <Link
+                  to="/partners"
+                  className="text-base font-semibold text-muted-foreground hover:text-foreground"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Partners
+                </Link>
+              </div>
+
+              <Link
+                to="/contact"
+                className={cn("text-lg font-bold uppercase", isActive('/contact') ? "text-foreground" : "text-muted-foreground")}
+                onClick={() => setIsOpen(false)}
+              >
+                CONTACT
+              </Link>
+              <Link
+                to="/events"
+                className={cn("text-lg font-bold uppercase", isActive('/events') ? "text-foreground" : "text-muted-foreground")}
+                onClick={() => setIsOpen(false)}
+              >
+                EVENTS
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
