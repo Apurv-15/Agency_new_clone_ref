@@ -45,7 +45,7 @@ export const GlobalScrollReveal: React.FC<GlobalScrollRevealProps> = ({
 
             // Split text into words
             const words = textContent.split(/(\s+)/);
-            const wordSpans = words.map((word, index) => {
+            const wordSpans = words.map((word) => {
                 if (word.match(/^\s+$/)) return word;
                 return `<span class="word-reveal" style="display: inline-block;">${word}</span>`;
             }).join('');

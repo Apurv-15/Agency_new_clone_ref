@@ -5,12 +5,10 @@ import { cn } from "@/lib/utils";
 // Simplified version for easier integration on rectangular cards
 export function GlowingBorder({
     children,
-    className,
-    gradientColor = "#FF8800"
+    className
 }: {
     children: React.ReactNode;
     className?: string;
-    gradientColor?: string;
 }) {
     const rgbGradient = "conic-gradient(from 0deg at 50% 50%, #ff0000 0deg, #ffff00 60deg, #00ff00 120deg, #00ffff 180deg, #0000ff 240deg, #ff00ff 300deg, #ff0000 360deg)";
 
