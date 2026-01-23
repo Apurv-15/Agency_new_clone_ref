@@ -132,7 +132,7 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, delay: index * 0.05 }}
-            className="group relative h-[450px] w-full bg-[#f8f9fa] rounded-[2rem] overflow-hidden flex flex-col items-center text-center px-4 py-8 transition-all duration-500 hover:shadow-xl hover:shadow-blue-500/5 hover:-translate-y-1"
+            className="group relative h-[380px] w-full bg-[#f8f9fa] rounded-[2rem] overflow-hidden flex flex-col items-center text-center px-4 py-8 transition-all duration-500 hover:shadow-xl hover:shadow-blue-500/5 hover:-translate-y-1"
         >
             <div className="relative z-20 w-full flex flex-col items-center mb-4">
                 {/* Small Circular Icon Container */}
@@ -148,11 +148,11 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
                     {project.icon}
                 </motion.div>
 
-                <h3 className="text-xl font-bold text-slate-900 mb-2 tracking-tight font-serif italic uppercase">
+                <h3 className="text-2xl font-black text-slate-900 mb-2 tracking-tight uppercase">
                     {project.title}
                 </h3>
 
-                <p className="text-[13px] text-slate-500 font-medium leading-relaxed max-w-[180px] mx-auto">
+                <p className="text-sm text-slate-500 font-medium leading-relaxed max-w-[180px] mx-auto">
                     {project.description}
                 </p>
             </div>

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 export function SoftmanHero() {
     return (
-        <section className="relative pt-32 pb-0 overflow-hidden bg-[#FAFAF8]">
+        <section className="relative pt-24 pb-0 overflow-hidden bg-[#FAFAF8]">
 
             {/* Soft Yellow Glow (Background Effect) */}
             <div
@@ -25,7 +25,7 @@ export function SoftmanHero() {
                 <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="flex items-center gap-2 bg-white border border-gray-200/80 rounded-full px-2 pr-4 py-1.5 shadow-sm mb-8 hover:shadow-md transition-shadow cursor-default"
+                    className="flex items-center gap-2 bg-white border border-gray-200/80 rounded-full px-2 pr-4 py-1.5 shadow-sm mb-6 hover:shadow-md transition-shadow cursor-default"
                 >
                     <div className="flex -space-x-2">
                         {[1, 2, 3].map((i) => (
@@ -54,7 +54,7 @@ export function SoftmanHero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="text-lg md:text-xl text-gray-500 max-w-2xl mb-10 leading-relaxed"
+                    className="text-lg md:text-xl text-gray-500 max-w-2xl mb-8 leading-relaxed"
                 >
                     Empowering your business with ISO 9001:2000 certified software solutions.
                     From custom automation to turnkey execution, we build the future.
@@ -65,7 +65,7 @@ export function SoftmanHero() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.3 }}
-                    className="flex flex-col sm:flex-row items-center gap-4 mb-16"
+                    className="flex flex-col sm:flex-row items-center gap-4 mb-12"
                 >
                     <Button className="h-12 px-8 rounded-full bg-gray-900 text-white hover:bg-gray-800 text-base font-medium shadow-xl shadow-gray-900/20">
                         Explore Our Services
@@ -76,7 +76,7 @@ export function SoftmanHero() {
                 </motion.div>
 
                 {/* 3D Floating Cards Container */}
-                <div className="relative w-full max-w-[1200px] h-[520px] flex justify-center items-center mb-[-100px] md:mb-[-140px]" style={{ perspective: '1200px' }}>
+                <div className="relative w-full max-w-[1200px] h-[480px] flex justify-center items-center mb-[-80px] md:mb-[-120px]" style={{ perspective: '1200px' }}>
 
                     {/* Left Card - Purple/Violet Theme */}
                     <motion.div
@@ -391,7 +391,7 @@ export function SoftmanHero() {
             </div>
 
             {/* Bottom Dark Section */}
-            <div className="bg-[#0F0F0F] text-white pt-36 md:pt-52 pb-24 px-4 mt-24 md:mt-0 relative z-0">
+            <div className="bg-[#0F0F0F] text-white pt-24 md:pt-36 pb-20 px-4 mt-20 md:mt-0 relative z-0">
                 {/* Curved top edge */}
                 <div className="absolute top-0 left-0 right-0 h-24 bg-[#FAFAF8]" style={{
                     borderRadius: '0 0 50% 50%',
