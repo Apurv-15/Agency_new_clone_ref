@@ -33,7 +33,7 @@ export function Navbar() {
 
         {/* Navigation Center */}
         <div className="hidden md:flex flex-1 items-center justify-center gap-8">
-          <Link to="/" className={navItemClass('/')}>
+          <Link to="/process" className={navItemClass('/process')}>
             HOME
           </Link>
           <Link to="/about-us" className={navItemClass('/about-us')}>
@@ -58,9 +58,6 @@ export function Navbar() {
               </Link>
               <Link to="/partners" className="block px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-foreground">
                 Partners
-              </Link>
-              <Link to="/process" className="block px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-foreground">
-                Process
               </Link>
             </div>
           </div>
