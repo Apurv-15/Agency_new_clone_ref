@@ -32,9 +32,7 @@ export const LazyLoader: React.FC<LazyLoaderProps> = ({
                     transition={{ duration: 0.8, ease: "easeInOut" }}
                     className="fixed inset-0 z-50 flex items-center justify-center bg-black"
                 >
-                    <style jsx global>{`
-                        @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-                    `}</style>
+
 
                     <div className="flex flex-col items-center justify-center">
                         {/* Main Loading Text - Centered */}
