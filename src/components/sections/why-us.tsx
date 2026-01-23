@@ -1,5 +1,5 @@
 import Image from "@/components/ui/image-shim";
-import { cn } from "@/lib/utils";
+
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { GlowingBorder } from "@/components/ui/glowing-border";
 
