@@ -25,12 +25,11 @@ export function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-[999] bg-background/80 backdrop-blur-md border-b border-border h-16">
       <div className="container mx-auto px-6 h-full flex items-center justify-between">
 
-        {/* Logo Left */}
         <Link to="/" className="flex items-center shrink-0">
           <img
             src="/images/logo/logo.png"
             alt="SIPL"
-            className="h-8 md:h-10 w-auto object-contain"
+            className="h-10 md:h-14 w-auto object-contain transition-transform hover:scale-105"
           />
         </Link>
 
