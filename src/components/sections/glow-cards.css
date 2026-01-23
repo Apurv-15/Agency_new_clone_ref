@@ -135,6 +135,7 @@
     line-height: 1.1;
     background: linear-gradient(to right, #1e293b, #475569);
     /* Darker text for visibility */
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
