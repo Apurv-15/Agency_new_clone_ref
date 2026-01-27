@@ -106,7 +106,7 @@ export function ProcessBento() {
                         </span>
                     </div>
                     <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">
-                        The Full <span className="text-blue-600">Lifecycle</span>
+                        Our <span className="text-blue-600">Process</span>
                     </h2>
                     <p className="text-slate-500 max-w-2xl mx-auto text-lg">
                         From initial analysis to long-term support, we orchestrate every stage of your digital transformation.
@@ -128,12 +128,7 @@ export function ProcessBento() {
                             <div className="glow-card w-full max-w-3xl aspect-[1.6/1] md:aspect-[2/1]">
                                 <div className="glow-element"></div>
                                 <div className="glow-card-inner">
-                                    <span
-                                        className="tag mb-4 shadow-sm"
-                                        style={{ backgroundColor: `var(--text-color)` }}
-                                    >
-                                        Phase 0{currentIndex + 1}
-                                    </span>
+
 
                                     <div className="flex flex-col md:flex-row gap-8 w-full h-full">
                                         <div className="flex-1 flex flex-col justify-center">
