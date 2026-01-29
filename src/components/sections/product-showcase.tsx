@@ -112,29 +112,7 @@ export function ProductShowcase() {
     return (
         <section className="min-h-screen py-32 px-4 md:px-8 bg-white selection:bg-black selection:text-white">
             <div className="max-w-7xl mx-auto">
-                <div className="max-w-3xl mb-24 text-left">
 
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="text-5xl md:text-7xl font-bold tracking-tight text-slate-900 mb-8 leading-[1.1]"
-                    >
-                        Software defined for <br />
-                        <span className="text-slate-400">every industry segment.</span>
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                        className="text-xl text-slate-500 leading-relaxed font-medium"
-                    >
-                        We build tools that empower businesses to operate with speed, intelligence, and scale.
-                        Our specialized suites are engineered to solve specific industry bottlenecks.
-                    </motion.p>
-                </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-6">
                     {products.map((product, index) => (
