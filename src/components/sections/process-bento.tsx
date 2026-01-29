@@ -99,12 +99,7 @@ export function ProcessBento() {
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 mb-4">
-                        <span className="w-2 h-2 rounded-full bg-slate-400" />
-                        <span className="text-slate-600 font-bold tracking-wider text-[10px] uppercase">
-                            Our Methodology
-                        </span>
-                    </div>
+
                     <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">
                         Our <span className="text-blue-600">Process</span>
                     </h2>

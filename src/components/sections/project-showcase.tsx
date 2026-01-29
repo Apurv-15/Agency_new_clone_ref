@@ -83,14 +83,7 @@ export function ProjectShowcase() {
         <section className="min-h-screen py-32 px-4 md:px-8 bg-white selection:bg-black selection:text-white">
             <div className="max-w-7xl mx-auto">
                 <div className="max-w-3xl mb-24 text-left">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="inline-block px-3 py-1 rounded-full bg-slate-100 text-slate-500 text-xs font-bold uppercase tracking-widest mb-6"
-                    >
-                        Our Projects
-                    </motion.div>
+
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
