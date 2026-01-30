@@ -91,23 +91,8 @@ export function ProcessBento() {
     const styles = COLOR_STYLES[currentStep.color as keyof typeof COLOR_STYLES];
 
     return (
-        <section className="py-24 px-6 max-w-7xl mx-auto overflow-hidden">
-            <div className="text-center mb-16">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                >
+        <section className="w-full py-24 px-6 max-w-7xl mx-auto overflow-hidden">
 
-                    <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">
-                        Our <span className="text-blue-600">Process</span>
-                    </h2>
-                    <p className="text-slate-500 max-w-2xl mx-auto text-lg">
-                        From initial analysis to long-term support, we orchestrate every stage of your digital transformation.
-                    </p>
-                </motion.div>
-            </div>
 
             <div className="glow-card-scope w-full flex flex-col items-center justify-center">
                 <div className="relative w-full max-w-4xl">
@@ -120,34 +105,32 @@ export function ProcessBento() {
                             transition={{ duration: 0.5, ease: "easeOut" }}
                             className="w-full flex justify-center [perspective:1000px]"
                         >
-                            <div className="glow-card w-full max-w-3xl aspect-[1.6/1] md:aspect-[2/1]">
+                            <div className="glow-card w-full max-w-3xl h-full md:aspect-[2/1]">
                                 <div className="glow-element"></div>
-                                <div className="glow-card-inner">
-
-
-                                    <div className="flex flex-col md:flex-row gap-8 w-full h-full">
+                                <div className="glow-card-inner !relative !h-auto md:!absolute md:!h-full !p-6 md:!p-12">
+                                    <div className="flex flex-col md:flex-row gap-8 md:gap-12 w-full h-full">
                                         <div className="flex-1 flex flex-col justify-center">
-                                            <div className="flex items-center gap-4 mb-4">
-                                                <div className={`p-3 rounded-xl ${styles.bg} ${styles.text}`}>
-                                                    {React.cloneElement(currentStep.icon, { className: "w-8 h-8" })}
+                                            <div className="flex items-center gap-4 mb-4 md:mb-6">
+                                                <div className={`p-3 rounded-xl ${styles.bg} ${styles.text} shrink-0`}>
+                                                    {React.cloneElement(currentStep.icon, { className: "w-6 h-6 md:w-8 md:h-8" })}
                                                 </div>
-                                                <h3 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600">
+                                                <h3 className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600">
                                                     {currentStep.title}
                                                 </h3>
                                             </div>
 
-                                            <p className="text-slate-600 text-lg mb-8 leading-relaxed">
+                                            <p className="text-slate-600 text-sm md:text-base mb-6 md:mb-8 leading-relaxed">
                                                 {currentStep.description}
                                             </p>
                                         </div>
 
-                                        <div className="flex-1 bg-slate-50/50 rounded-2xl p-6 flex flex-col justify-center border border-slate-100">
-                                            <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">Key Deliverables</h4>
-                                            <ul className="grid gap-3">
+                                        <div className="flex-1 bg-slate-50/50 rounded-2xl p-6 md:p-8 flex flex-col justify-center border border-slate-100">
+                                            <h4 className="text-[10px] md:text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Key Deliverables</h4>
+                                            <ul className="grid gap-3 md:gap-4">
                                                 {currentStep.items.map((item, i) => (
                                                     <li key={i} className="flex items-start gap-3 text-slate-700 font-medium">
-                                                        <CheckCircle2 className={`w-5 h-5 ${styles.text} shrink-0 mt-0.5`} />
-                                                        <span className="text-sm md:text-base">{item}</span>
+                                                        <CheckCircle2 className={`w-4 h-4 md:w-5 md:h-5 ${styles.text} shrink-0 mt-0.5`} />
+                                                        <span className="text-xs md:text-sm lg:text-base">{item}</span>
                                                     </li>
                                                 ))}
                                             </ul>
@@ -159,20 +142,20 @@ export function ProcessBento() {
                     </AnimatePresence>
 
                     {/* Navigation Controls */}
-                    <div className="absolute top-1/2 -translate-y-1/2 -left-4 md:-left-12 z-20">
+                    <div className="absolute top-1/2 -translate-y-1/2 -left-2 md:-left-12 z-20">
                         <button
                             onClick={prevSlide}
-                            className="p-3 rounded-full bg-white shadow-lg border border-slate-100 text-slate-600 hover:text-violet-600 hover:scale-110 transition-all focus:outline-none focus:ring-2 focus:ring-violet-500/20"
+                            className="p-2 md:p-3 rounded-full bg-white shadow-lg border border-slate-100 text-slate-600 hover:text-violet-600 hover:scale-110 transition-all focus:outline-none focus:ring-2 focus:ring-violet-500/20"
                         >
-                            <ChevronLeft className="w-6 h-6" />
+                            <ChevronLeft className="w-4 h-4 md:w-6 md:h-6" />
                         </button>
                     </div>
-                    <div className="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-12 z-20">
+                    <div className="absolute top-1/2 -translate-y-1/2 -right-2 md:-right-12 z-20">
                         <button
                             onClick={nextSlide}
-                            className="p-3 rounded-full bg-white shadow-lg border border-slate-100 text-slate-600 hover:text-violet-600 hover:scale-110 transition-all focus:outline-none focus:ring-2 focus:ring-violet-500/20"
+                            className="p-2 md:p-3 rounded-full bg-white shadow-lg border border-slate-100 text-slate-600 hover:text-violet-600 hover:scale-110 transition-all focus:outline-none focus:ring-2 focus:ring-violet-500/20"
                         >
-                            <ChevronRight className="w-6 h-6" />
+                            <ChevronRight className="w-4 h-4 md:w-6 md:h-6" />
                         </button>
                     </div>
                 </div>

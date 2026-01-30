@@ -35,7 +35,6 @@
 
 .glow-card {
     width: 100%;
-    aspect-ratio: 1.5/1;
     color: var(--text-color);
     margin: auto;
     display: flex;
