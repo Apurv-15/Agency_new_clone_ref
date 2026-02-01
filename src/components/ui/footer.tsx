@@ -19,7 +19,7 @@ export function Footer() {
 
                 {/* Right Side: Copyright */}
                 <div className="text-xs md:text-sm text-neutral-500 font-medium tracking-wide text-center md:text-right">
-                    © 2024 Softman. All rights reserved.
+                    © 2015 Softman. All rights reserved.
                 </div>
             </div>
         </footer>
